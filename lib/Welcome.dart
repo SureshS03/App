@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/home.dart';
 
 void main() {
   runApp(const Welcome());
@@ -101,7 +102,12 @@ class Home extends StatelessWidget {
 
                         // Login button
                         ElevatedButton(
-                          onPressed: () {}, // Placeholder for button action
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const home()),
+                            );
+                          }, // Placeholder for button action
                           child: const Text('Login'),
                           style: ElevatedButton.styleFrom(
                             enabledMouseCursor: SystemMouseCursors.click, // Change cursor on hover
