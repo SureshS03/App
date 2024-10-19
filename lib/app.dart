@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:myapp/login.dart';
+import 'package:myapp/Welcome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -180,7 +180,7 @@ class _MyHome extends State<MyHome> {
                         if (currentPage == 2) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => LoginApp()),
+                            MaterialPageRoute(builder: (context) => Welcome()),
                           );
                         } else {
                           setState(() {

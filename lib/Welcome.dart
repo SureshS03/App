@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const LoginApp());
+  runApp(const Welcome());
 }
 
 // Root of the application
-class LoginApp extends StatelessWidget {
-  const LoginApp({super.key});
+class Welcome extends StatelessWidget {
+  const Welcome({super.key});
 
   @override
   Widget build(BuildContext context) {
