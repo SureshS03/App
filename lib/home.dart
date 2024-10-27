@@ -305,9 +305,7 @@ class _OTPScreenState extends State<OTPScreen> {
                       }),
                     ),
                     ElevatedButton(
-                      onPressed: () {
-                        // Handle OTP submission
-                      },
+                      onPressed: () {},
                       child: const Text(
                         'Continue',
                         style: TextStyle(
