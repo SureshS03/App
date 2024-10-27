@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'dart:async';
 
 void main() {
   runApp(const home());
@@ -90,6 +91,7 @@ class _homeState extends State<homePage> {
                     // Get OTP button
                     ElevatedButton(
                       onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const OTPScreen()));
                         // Action when Get OTP button is pressed
                       },
                       child: const Text(
@@ -138,6 +140,97 @@ class _homeState extends State<homePage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+// Stateful widget for the OTP screen
+class OTPScreen extends StatefulWidget {
+  const OTPScreen({Key? key}) : super(key: key);
+
+  @override
+  _OTPScreenState createState() => _OTPScreenState();
+}
+
+class _OTPScreenState extends State<OTPScreen> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          color: Color(0xffffffff), // White background
+        ),
+        child: Column(children: [
+          Expanded(
+            flex: 2,
+            child: Container(
+              alignment: Alignment.center,
+
+              decoration: const BoxDecoration(
+                color: Color(0xffffffff), // White background
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text('OTP Verification',style: TextStyle(fontFamily: 'Manrope',fontWeight: FontWeight.w700 , fontSize: 22),),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: 56,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                      Text('We have sent you the otp code to +91 00000 00000',
+                      style: TextStyle(fontFamily: 'Manrope',fontWeight: FontWeight.w400 , fontSize: 12),
+                    ),
+                    Text('The code will expired at 00:17',style: TextStyle(fontFamily: 'Manrope',fontWeight: FontWeight.w400 , fontSize: 12))
+                    ],)
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: List.generate(4, (index) => Container(
+                      //otp boxes
+                    )
+                    )
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},                    
+                      child: const Text(
+                        'Continue',
+                        style: TextStyle(
+                          fontFamily: 'Manrope',
+                          color: Colors.white, // White text color
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(327, 50), // Button size
+                        backgroundColor: const Color(0xff9754CB), // Purple background color
+                      ),
+                  ),
+                  Text(
+                  'Resend the code?', 
+                  style: TextStyle(
+                  decoration: TextDecoration.underline, // Underlined text
+                  fontFamily: 'Manrope',
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff000000), // Black text color
+                  ),
+                  ),
+                ],
+              ), // Displays the logo image
+            )
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(),
+          )
+
+
+        ],),
+      )
     );
   }
 }
