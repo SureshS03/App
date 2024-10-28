@@ -63,6 +63,9 @@ flutter:
     - assets/images/Arrow.png
     - assets/images/Arrow1.png
     - assets/images/logo.png
+    - assets/images/Scanner.png
+    - assets/images/sicon.png
+    - assets/images/man.png
 
   fonts:
     - family: Manrope 

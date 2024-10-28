@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myapp/homeScreen.dart';
 
 void main() {
   runApp(const home());
@@ -305,7 +306,12 @@ class _OTPScreenState extends State<OTPScreen> {
                       }),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const homeScreen()),
+                        );
+                      },
                       child: const Text(
                         'Continue',
                         style: TextStyle(
