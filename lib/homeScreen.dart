@@ -1,3 +1,5 @@
+//import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,13 +27,63 @@ class homePage extends StatefulWidget {
 
 class _homePageState extends State<homePage> {
   int page_index = 0;
+    final List<Widget> pages = [
+    Home(),
+    Categories(),
+    Like(),
+    Profile(),
+  ];
   @override
   Widget build(BuildContext context) {
-    final x = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      body: IndexedStack(
+        index: page_index,
+        children: pages, // Display pages in IndexedStack
+      ),
+      bottomNavigationBar: NavigationBar(
+        animationDuration: const Duration(milliseconds: 200),
+        onDestinationSelected: (int index) {
+          setState(() {
+            page_index = index; // Update selected page index
+          });
+        },
+        selectedIndex: page_index,
+        indicatorColor: const Color(0xff9754CB),
+        destinations: [
+          NavigationDestination(
+            icon: ImageIcon(AssetImage('assets/images/home.png')),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            icon: ImageIcon(AssetImage('assets/images/cat.png')),
+            label: 'Categories',
+          ),
+          NavigationDestination(
+            icon: ImageIcon(AssetImage('assets/images/like.png')),
+            label: 'Favourites',
+          ),
+          NavigationDestination(
+            icon: ImageIcon(AssetImage('assets/images/grp.png')),
+            label: 'Profile',
+          ),
+        ],
+      ),
+    );
+  }
+}
+class Home extends StatelessWidget {
+
+  
+  const Home({Key? key,}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+        final x = MediaQuery.of(context).size.width;
     final y = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: 
-      Column(
+      body: Center(
+        child:       Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
@@ -249,51 +301,365 @@ class _homePageState extends State<homePage> {
           ),
         ],
       ),
-      bottomNavigationBar: NavigationBar(
-        
-        //labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-        animationDuration: const Duration(milliseconds: 200),
-        onDestinationSelected: (int index) {
-          setState(() {
-            page_index = index;
-            if (index == 1) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Categories(page_index: index,)),
-              );
-            }
-          });
-        },
-        selectedIndex: page_index,
-        indicatorColor: const Color(0xff9754CB),
-        destinations: [
-          NavigationDestination(
-            icon: ImageIcon(AssetImage('assets/images/home.png')),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            
-            icon: ImageIcon(AssetImage('assets/images/cat.png')),
-            label: 'Categories',
+    ));
+  }
+}
+class Categories extends StatelessWidget {
+  const Categories({Key? key}) : super(key: key);
 
-          ),
-          NavigationDestination(
-            icon: ImageIcon(AssetImage('assets/images/like.png')),
-            label: 'Favourites',
-          ),
-          NavigationDestination(
-            icon: ImageIcon(AssetImage('assets/images/grp.png')),
-            label: 'Profile',
-          ),
-        ],
-      ),
+  @override
+  Widget build(BuildContext context) {
+        final x = MediaQuery.of(context).size.width;
+    final y = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+              Container(
+                //padding: EdgeInsets.all(10),
+                height: y * 0.3,
+                decoration: BoxDecoration(
+                  color: Color(0xff9754CB)
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Hey, Sarah',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Manrope',
+                        ),
+                        ),
+                        Image.asset('assets/images/sicon.png',color: Colors.white,),
+                      ],
+                    ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      'Search',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 50,
+                        fontWeight: FontWeight.w300,
+                        fontFamily: 'Manrope',
+                      ),
+                    ),
+                    ),
+                    Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      'By Category',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 50,
+                        fontWeight: FontWeight.w800,
+                        fontFamily: 'Manrope',
+                      ),
+                    )
+                    )
+                  ],
+                ),
+              ),
+            Expanded(
+              flex: 3,
+              child: Expanded(
+                child:
+              Container(
+                
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallg.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Fruits & Vegie', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/car.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Travel', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallfood.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Food', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallt.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('School', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                      ],
+
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallg.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Fruits & Vegie', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/car.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Travel', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallfood.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Food', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallt.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('School', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                      ],
+
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallg.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Fruits & Vegie', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/car.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Travel', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallfood.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Food', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallt.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('School', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                      ],
+
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallg.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Fruits & Vegie', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/car.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Travel', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallfood.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('Food', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Image.asset('assets/images/smallt.png'),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 243, 218, 254),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text('School', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, fontFamily: 'Manrope', color: Colors.grey)),
+                          ],
+                        ),
+                      ],
+
+                    ),
+                  ],
+                ),
+              ),
+              )
+            )
+
+          ],
+        ),
+      )
     );
   }
 }
 
-class Categories extends StatelessWidget {
-  final int page_index;
-  const Categories({Key? key, required this.page_index}) : super(key: key);
+class Like extends StatelessWidget {
+  const Like({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -305,6 +671,22 @@ class Categories extends StatelessWidget {
             
           },
           child: const Text('Go back!'),
+        ),
+      ),
+    );
+  }
+}
+
+class Profile extends StatelessWidget {
+    const Profile({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: 200,
+        height: 200,
+        decoration: BoxDecoration(
+          color: Colors.amber
         ),
       ),
     );

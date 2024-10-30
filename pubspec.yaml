@@ -74,6 +74,10 @@ flutter:
     - assets/images/grp.png
     - assets/images/like.png
     - assets/images/cat.png
+    - assets/images/car.png
+    - assets/images/smallfood.png
+    - assets/images/smallg.png
+    - assets/images/smallt.png
 
 
   fonts:
