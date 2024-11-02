@@ -82,7 +82,7 @@ class Home extends StatelessWidget {
         final x = MediaQuery.of(context).size.width;
     final y = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Center(
+      body: Container(
         child:       Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
