@@ -309,7 +309,7 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final x = MediaQuery.of(context).size.width;
+    final x = MediaQuery.of(context).size.width;
     final y = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
