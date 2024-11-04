@@ -78,6 +78,11 @@ flutter:
     - assets/images/smallfood.png
     - assets/images/smallg.png
     - assets/images/smallt.png
+    - assets/images/man2.png
+    - assets/images/ban.png
+    - assets/images/dar.png
+    - assets/images/bri.png
+    - assets/images/pei.png
 
 
   fonts:
