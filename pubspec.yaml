@@ -83,7 +83,11 @@ flutter:
     - assets/images/dar.png
     - assets/images/bri.png
     - assets/images/pei.png
-
+    - assets/images/pro.png
+    - assets/images/edit.png
+    - assets/images/lock.png
+    - assets/images/logout.png
+    - assets/images/sq.png
 
   fonts:
     - family: Manrope 
@@ -92,5 +96,11 @@ flutter:
         - asset: assets/fonts/Manrope-Regular.ttf
         - asset: assets/fonts/Manrope-Bold.ttf
         - asset: assets/fonts/Manrope-Light.ttf
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/Rubik-Regular.ttf
+        - asset: assets/fonts/Rubik-Bold.ttf
+        - asset: assets/fonts/Rubik-Light.ttf
+        - asset: assets/fonts/Rubik-Medium.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -1,6 +1,7 @@
 //import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:myapp/product.dart';
 
 void main() {
   runApp(const homeScreen());
@@ -309,7 +310,7 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final x = MediaQuery.of(context).size.width;
+    //final x = MediaQuery.of(context).size.width;
     final y = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
@@ -339,7 +340,20 @@ class Categories extends StatelessWidget {
                           fontFamily: 'Manrope',
                         ),
                         ),
-                        Image.asset('assets/images/sicon.png',color: Colors.white,),
+                        ElevatedButton(onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Product()),
+                            );
+                        } ,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xff9754CB),
+                          side: BorderSide.none,
+                          
+                        ),
+                       
+                          child:
+                        Image.asset('assets/images/sicon.png',color: Colors.white,))
                       ],
                     ),
                     ),
@@ -681,12 +695,189 @@ class Profile extends StatelessWidget {
     const Profile({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: 200,
-        height: 200,
-        decoration: BoxDecoration(
-          color: Colors.amber
+        final x = MediaQuery.of(context).size.width;
+    final y = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: Container(
+        child: Column(
+          children: [
+            Expanded(
+              flex : 1,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                height: y * 0.45,
+                decoration: BoxDecoration(
+                  color: Color(0xff9754CB),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 20),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        //crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Image.asset('assets/images/sicon.png',color: Colors.white,),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 120,
+                      height: 120,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 243, 225, 252),
+                        borderRadius: BorderRadius.circular(60)
+                      ),
+                      child: Image.asset('assets/images/pro.png'),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Karthika',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Rubik',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        ),
+                        SizedBox(width: 15),
+                        Image.asset('assets/images/edit.png'),
+                      ],
+                    ),
+                    Text('+91 98765 43210    |    user@gmail.com',style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Rubik',
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                    ),)
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                margin: EdgeInsets.all(20),
+                
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    
+                    Container(
+                      height: y * 0.32,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                        Container(
+                          padding: EdgeInsets.all(20),
+                          width: x * 0.9,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Color.fromARGB(255, 250, 251, 209)
+                          ),
+                          child: Row(
+                            children: [
+                              Image.asset('assets/images/like.png',color: Color(0xffFF9900)),
+                              SizedBox(width: 40),
+                              Text('Favourites',style: TextStyle(
+                                
+                                fontFamily: 'Rubik',
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),)
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(20),
+                          width: x * 0.9,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Color.fromARGB(255, 253, 208, 255)
+                          ),
+                          child: Row(
+                            children: [
+                              Image.asset('assets/images/lock.png',color: Color(0xffA146A5)),
+                              SizedBox(width: 40),
+                              Text('Change Password',style: TextStyle(
+                                
+                                fontFamily: 'Rubik',
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),)
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(20),
+                          width: x * 0.9,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Color.fromARGB(255, 211, 253, 208)
+                          ),
+                          child: Row(
+                            children: [
+                              Image.asset('assets/images/sq.png',color: Color(0xff31BB01)),
+                              SizedBox(width: 40),
+                              Text('Helpline / Support',style: TextStyle(
+                                fontFamily: 'Rubik',
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),)
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(20),
+                          width: x * 0.9,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Color.fromARGB(255, 216, 243, 255)
+                      
+                          ),
+                          child: Row(
+                            children: [
+                              Image.asset('assets/images/logout.png',color: Color(0xff00B0FF)),
+                              SizedBox(width: 40),
+                              Text('Favourites',style: TextStyle(
+                                
+                                fontFamily: 'Rubik',
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),)
+                            ],
+                          ),
+                        )
+                      ],),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          Text('Made With ❤️\nBy Piczo',style: TextStyle(
+                            fontFamily: 'Manrope',
+                            fontSize: 30,
+                            fontWeight: FontWeight.w700,
+                            
+                          ),),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
