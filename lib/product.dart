@@ -12,9 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Product App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: const Product(),
     );
   }
@@ -100,7 +97,9 @@ class _ProductState extends State<Product> {
                     ],),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const ProductCard()));
+                    },
                     style: ElevatedButton.styleFrom(
                       fixedSize: Size(x * 0.9, y * 0.046),
                       padding: const EdgeInsets.all(2.0),
@@ -170,6 +169,7 @@ class _ProductState extends State<Product> {
                         ),
                       ),
                       Container(
+                        padding: EdgeInsets.all(2),
                         width: 140,
                         height: 180,
                         decoration: BoxDecoration(
@@ -343,6 +343,720 @@ class _ProductState extends State<Product> {
               )
             )
 
+          ],
+        ),
+      )
+    );
+  }
+}
+
+class ProductCard extends StatelessWidget {
+  const ProductCard({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final double x = MediaQuery.of(context).size.width;
+    final double y = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: Container(
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+              decoration: BoxDecoration(
+                color: Color(0xff9754CB)
+              ),
+              height: y * 0.15,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(height: 20,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(50)
+                        ),
+                        child: BackButton(
+                          onPressed: () => Navigator.pop(context),
+                          color: Colors.black,
+                          style: ButtonStyle(),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          
+                        },
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: Size(x * 0.75, y * 0.046),
+                          padding: const EdgeInsets.all(2.0),
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const SizedBox(width: 10),
+                            Image.asset('assets/images/sicon.png'),
+                            const SizedBox(width: 20),
+                            const Text(
+                              'Search Products',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Manrope',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      
+                    ],
+                  ),
+                  SizedBox(height: 20,),
+                  Container(
+                    
+                    child: Text('150 Products in Indegenous Fruits',style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Manrope'
+                    ),),
+                  )
+                ],
+              ),
+            ),
+            Expanded(
+              child:
+            SingleChildScrollView(
+              
+              padding: EdgeInsets.all(20),
+              scrollDirection: Axis.vertical,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/ban.png'),
+                              ),
+                            ),
+                            Text(
+                              'Indigenous Fruits',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Center(
+                            child: Image.asset(
+                              'assets/images/pei.png',
+                              fit: BoxFit.contain, 
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Fruits',
+                          style: TextStyle(
+                            color: Color(0xff6237A0),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: 'Manrope',
+                          ),
+                        ),
+                        Text(
+                          '18 Products',
+                          style: TextStyle(
+                            color: Color(0xffA786D6),
+                            fontSize: 10,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: 'Manrope',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/bri.png'),
+                              ),
+                            ),
+                            Text(
+                              'Vegitables',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/dar.png'),
+                              ),
+                            ),
+                            Text(
+                              'Exogenous Fruits',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/ban.png'),
+                              ),
+                            ),
+                            Text(
+                              'Indigenous Fruits',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/ban.png'),
+                              ),
+                            ),
+                            Text(
+                              'Indigenous Fruits',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Center(
+                            child: Image.asset(
+                              'assets/images/pei.png',
+                              fit: BoxFit.contain, 
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Fruits',
+                          style: TextStyle(
+                            color: Color(0xff6237A0),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: 'Manrope',
+                          ),
+                        ),
+                        Text(
+                          '18 Products',
+                          style: TextStyle(
+                            color: Color(0xffA786D6),
+                            fontSize: 10,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: 'Manrope',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/bri.png'),
+                              ),
+                            ),
+                            Text(
+                              'Vegitables',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+
+                      
+                ],
+              ),
+                  Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/ban.png'),
+                              ),
+                            ),
+                            Text(
+                              'Indigenous Fruits',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Center(
+                            child: Image.asset(
+                              'assets/images/pei.png',
+                              fit: BoxFit.contain, 
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Fruits',
+                          style: TextStyle(
+                            color: Color(0xff6237A0),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: 'Manrope',
+                          ),
+                        ),
+                        Text(
+                          '18 Products',
+                          style: TextStyle(
+                            color: Color(0xffA786D6),
+                            fontSize: 10,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: 'Manrope',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/bri.png'),
+                              ),
+                            ),
+                            Text(
+                              'Vegitables',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/dar.png'),
+                              ),
+                            ),
+                            Text(
+                              'Exogenous Fruits',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/ban.png'),
+                              ),
+                            ),
+                            Text(
+                              'Indigenous Fruits',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/ban.png'),
+                              ),
+                            ),
+                            Text(
+                              'Indigenous Fruits',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Center(
+                            child: Image.asset(
+                              'assets/images/pei.png',
+                              fit: BoxFit.contain, 
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Fruits',
+                          style: TextStyle(
+                            color: Color(0xff6237A0),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: 'Manrope',
+                          ),
+                        ),
+                        Text(
+                          '18 Products',
+                          style: TextStyle(
+                            color: Color(0xffA786D6),
+                            fontSize: 10,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: 'Manrope',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  Container(
+                        padding: EdgeInsets.all(2),
+                        width: 140,
+                        height: 135,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 233, 208, 245),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Center(
+                                child: Image.asset('assets/images/bri.png'),
+                              ),
+                            ),
+                            Text(
+                              'Vegitables',
+                              style: TextStyle(
+                                color: Color(0xff6237A0),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            ),
+                            Text(
+                              '18 Products',
+                              style: TextStyle(
+                                color: Color(0xffA786D6),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'Manrope'
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )
+            )
           ],
         ),
       )
