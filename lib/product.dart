@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -454,8 +455,13 @@ class ProductCard extends StatelessWidget {
                         child: Column(
                           children: [
                             Expanded(
-                              child: Center(
-                                child: Image.asset('assets/images/ban.png'),
+                              child: GestureDetector(
+                                onTap: () => {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Description()))
+                                },
+                                child: Center(
+                                  child: Image.asset('assets/images/ban.png'),
+                                ),
                               ),
                             ),
                             Text(
@@ -1060,6 +1066,123 @@ class ProductCard extends StatelessWidget {
           ],
         ),
       )
+    );
+  }
+}
+
+class Description extends StatelessWidget {
+  const Description({super.key});
+  @override
+  Widget build(BuildContext context){
+    final double x = MediaQuery.of(context).size.width;
+    final double y = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: Container(
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+              height: y * 0.3,
+              color: Color.fromARGB(255, 246, 233, 252),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                  Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(50)
+                        ),
+                        child: BackButton(
+                          onPressed: () => Navigator.pop(context),
+                          color: Colors.black,
+                          style: ButtonStyle(),
+                        ),
+                      ),
+                      Image.asset('assets/images/red_like.png', color: Color(0xffFA4141),),
+                ],),
+                Text('Banana', style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 32,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Manrope'
+                ),),
+              ],),
+            ),
+            Container(
+              child: Column(
+                children: [
+                  Container(
+                    height: y * 0.3,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                      Image.asset('assets/images/left.png'),
+                      Image.asset('assets/images/ban.png'),
+                      Image.asset('assets/images/right.png'),
+                      ]
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                      Text('Description', style: TextStyle(
+                        color: Color(0xff6237A0),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w800,
+                        fontFamily: 'Manrope'
+                      ),),
+                      Center(
+                        child: Container(
+                          margin: EdgeInsets.all(5),
+                          padding: EdgeInsets.all(10),
+                          child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacus felis, ornare quis dictum a, scelerisque ac purus. Mauris laoreet lacus eget egestas accumsan. ',style: TextStyle(
+                            color: Color(0xff130F26),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Manrope'
+                          ),),
+                        ),
+                      )
+                    ],),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Auido', style: TextStyle(
+                        color: Color(0xff6237A0),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w800,
+                        fontFamily: 'Manrope'
+                      ),),
+                      Center(child: Container(
+                        margin: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          children: [
+                            Row(children: [
+                              
+                            ],)
+                          ],
+                        ),
+                      ),)
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
