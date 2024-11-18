@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // Navigate to MyHome after 3 seconds
     Timer(const Duration(seconds: 3), () {
       if (mounted) {
-        Navigator.of(context).pushReplacement(
+        Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => const MyHome()),
         );
       }

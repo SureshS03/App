@@ -103,7 +103,7 @@ class Home extends StatelessWidget {
                         // Login button
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(builder: (context) => const home()),
                             );

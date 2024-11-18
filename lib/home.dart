@@ -87,11 +87,11 @@ class _HomePageState extends State<HomePage> {
                         LengthLimitingTextInputFormatter(10),
                         FilteringTextInputFormatter.digitsOnly,
                       ],
-                      onChanged: (value) {
+                      /*onChanged: (value) {
                         if (value.length == 10) {
                           numChecker();
                         }
-                      },
+                      },*/
                       controller: numberEntered,
                       keyboardType: TextInputType.phone,
                       style: const TextStyle(
