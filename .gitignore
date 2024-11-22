@@ -41,3 +41,19 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Ignore Flutter auto-generated files for language stats
+*.cmake linguist-vendored
+*.h linguist-vendored
+*.cpp linguist-vendored
+ios/** linguist-vendored
+android/** linguist-vendored
+
+
+# Ignore build and generated files
+/build/
+*.cmake
+*.cpp
+*.h
+ios/
+android/
